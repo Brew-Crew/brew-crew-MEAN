@@ -10,9 +10,10 @@ export class EditBeerReviewComponent implements OnInit {
   theReview: any = {}
   
 
-  constructor(
-    private viewService: ReviewService
-  ) { }
+
+
+  constructor(private viewService: ReviewService) { }
+
 
   ngOnInit() {
   }
@@ -24,5 +25,5 @@ export class EditBeerReviewComponent implements OnInit {
     })
   }
 
-  
+
 }

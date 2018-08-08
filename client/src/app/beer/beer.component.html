@@ -24,9 +24,9 @@
 </form>
 
 <hr />
-<h2>We can iterate over beers</h2>
+<h2>Beer List</h2>
 <div class ="" *ngFor="let aBeer of beers">
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+<ngb-accordion #acc="ngbAccordion">
   <ngb-panel title={{aBeer.name}}>
     <ng-template ngbPanelContent>
       <p> {{aBeer.brewery}}</p>
@@ -36,6 +36,3 @@
       <a [routerLink]="['/beers', aBeer._id]">See Details</a>
     </ng-template>
   </ngb-panel>
-
-
-
