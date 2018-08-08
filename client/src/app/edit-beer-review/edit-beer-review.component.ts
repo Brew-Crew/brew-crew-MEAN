@@ -8,16 +8,17 @@ import { ReviewService } from '../services/review.service'
 })
 export class EditBeerReviewComponent implements OnInit {
 
+theReview:any = {};
 
   constructor(private viewService: ReviewService) { }
 
   ngOnInit() {
   }
 
-  changeReview(beerId, reviewId){
+  changeReview(){
     this.viewService.editReview(beerId, reviewId)
     .subscribe()
   }
 
-  
+
 }
