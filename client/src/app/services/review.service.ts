@@ -37,14 +37,14 @@ export class ReviewService {
     .catch(this.handleError)
   }
 
-  editReview(beerId, reviewId){
-    return this.http.post(`http://localhost:3000/api/beers/${beerId}/review/${reviewId}/edit`, {withCredentials: true})
+  editReview(reviewId){
+    return this.http.post(`http://localhost:3000/api/beer/review/${reviewId}/edit`, {withCredentials: true})
     .map(res => res.json())
     .catch(this.handleError)
   }
 
-  removeReview(beerId, reviewId){
-    return this.http.delete(`http://localhost:3000/api/beers/${beerId}/review/${reviewId}/delete`, {withCredentials: true})
+  removeReview(theReview) {
+    return this.http.delete(`http://localhost:3000/api/beer/review/${theReview._id}/delete`, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }
