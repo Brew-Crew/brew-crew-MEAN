@@ -3,6 +3,7 @@
 
 <h2>One day when I grow up I'll make new beers </h2>
 <!--Creating a Portion for the User to add a New Beer/still missing buttons and a nicer layout  -->
+<form (ngSubmit)="addNewBeer()">
 
 <label>Beer Name: </label>
 <input [(ngModel)]="theNewBeerEntry.name" name="theName" type="text"/><br />
@@ -20,6 +21,7 @@
 <input [(ngModel)]="theNewBeerEntry.price" name="thePrice" type="text" /><br />
 
 <button>Add Beer to Beer List</button>
+</form>
 
 <hr />
 <h2>We can iterate over beers</h2>
@@ -31,7 +33,7 @@
       <p> {{aBeer.description}}</p>
       <p> {{aBeer.alchContent}}</p>
       <p> {{aBeer.price}}</p>
-      <a [routerLink]="['beers', aBeer._id]">See Details</a>
+      <a [routerLink]="['/beers', aBeer._id]">See Details</a>
     </ng-template>
   </ngb-panel>
 

@@ -41,13 +41,13 @@ export class BreweryService {
   }
 
   editBrewery(brewery){
-    return this.http.post(`http://localhost:3000/api/breweries/${brewery}/edit`, {withCredentials: true})
+    return this.http.post(`http://localhost:3000/api/breweries/${brewery._id}/edit`, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }
 
   deleteBrewery(brewery){
-    return this.http.post(`http://localhost:3000/api/breweries/${brewery}/remove`, {withCredentials: true})
+    return this.http.post(`http://localhost:3000/api/breweries/${brewery._id}/remove`, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }

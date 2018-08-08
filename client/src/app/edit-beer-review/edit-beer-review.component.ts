@@ -7,16 +7,21 @@ import { ReviewService } from '../services/review.service'
   styleUrls: ['./edit-beer-review.component.css']
 })
 export class EditBeerReviewComponent implements OnInit {
+  theReview: any = {}
+  
 
-
-  constructor(private viewService: ReviewService) { }
+  constructor(
+    private viewService: ReviewService
+  ) { }
 
   ngOnInit() {
   }
 
-  changeReview(beerId, reviewId){
-    this.viewService.editReview(beerId, reviewId)
-    .subscribe()
+  changeReview(){
+    this.viewService.editReview(this.theReview)
+    .subscribe((res) =>{
+
+    })
   }
 
   
