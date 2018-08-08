@@ -94,7 +94,7 @@ beerRouter.get('/beers/:id', (req, res, next)=>{
 
 
 //route for editing a beer and descriptions etc.
-beerRouter.post('/breweries/:id/beers/edit/:beerid', (req, res, next)=>{
+beerRouter.post('/brewery/beer/edit/:beerid', (req, res, next)=>{
   Beer.findByIdAndUpdate(req.params.beerid, {
     name: req.body.name,
     description: req.body.description,
@@ -110,8 +110,8 @@ beerRouter.post('/breweries/:id/beers/edit/:beerid', (req, res, next)=>{
 });
 
 //route for deleting a beer
-beerRouter.post('/breweries/:id/beers/delete/:beerid', (req, res, next) =>{
-  Beer.findByIdAndRemove(req.params.beerid)
+beerRouter.post('/brewery/beer/delete/:theId', (req, res, next) =>{
+  Beer.findByIdAndRemove(req.params.theId)
     .then((response)=>{
       res.json(response);
     })
@@ -119,5 +119,7 @@ beerRouter.post('/breweries/:id/beers/delete/:beerid', (req, res, next) =>{
       next(err);
     });
 });
+
+
 
 module.exports = beerRouter;
