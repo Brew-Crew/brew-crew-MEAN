@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BeerComponent implements OnInit {
 
   beers:Array<any>;
+  beersFromBrewery:Array<any>;
 
   theNewBeerEntry: any = {};
 
@@ -31,8 +32,17 @@ export class BeerComponent implements OnInit {
       this.beers = res;
     });
   }
+
+  showBreweryBeers(){
+    this.theService.breweryBeers(this.beersFromBrewery)
+    .subscribe((response)=>{
+      this.beersFromBrewery = response;
+    })
+  }
+
   ngOnInit() {
-    this.allBeers();
+      this.allBeers();
+      this.showBreweryBeers();
   }
 
 }
