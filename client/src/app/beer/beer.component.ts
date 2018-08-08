@@ -16,19 +16,19 @@ export class BeerComponent implements OnInit {
 
   constructor(private theService: BeerService, private myActivatedRoute: ActivatedRoute) { }
 
-  addNewBeer(){
-    this.theService.createBeer(this.theNewBeerEntry)
-    .subscribe((response)=>{
-      this.theNewBeerEntry = {};
-      this.allBeers();
-      console.log('This======>' + response + "<==== was added into the collection")
-    });
-  }
-
+  
   allBeers(){
     this.theService.allBeers()
     .subscribe((res)=>{
       this.beers = res;
+    });
+  }
+  addNewBeer(){
+    this.theService.createBeer(this.theNewBeerEntry)
+    .subscribe((response)=>{
+      this.allBeers();
+      location.reload();
+      console.log('This======>' + response + "<==== was added into the collection")
     });
   }
   ngOnInit() {

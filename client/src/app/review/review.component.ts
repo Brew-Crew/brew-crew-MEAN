@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReviewService } from '../services/review.service'
+import { ReviewService } from '../services/review.service';
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-review',
@@ -14,7 +15,7 @@ export class ReviewComponent implements OnInit {
   // newReview: any = {};
   userReview: any = {};
 
-  constructor(private viewService: ReviewService) { }
+  constructor(private viewService: ReviewService, private myActivated: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.thatBeerReview()
@@ -24,7 +25,7 @@ export class ReviewComponent implements OnInit {
     // console.log(this.beerReview)
     this.viewService.beerReview()
     .subscribe((res) =>{
-      this.thatOneReview = res.reverse();
+      this.thatOneReview = res;
     })
   }
   
@@ -45,13 +46,10 @@ export class ReviewComponent implements OnInit {
     })
   }
 
-
   deleteReview(){
-    // beerId: id
-    
-    this.viewService.removeReview(this.thatOneReview)
-    .subscribe((res) => {
-
+    this.viewService.removeReview(this.thatOneReview._id)
+    .subscribe(() => {
+      this.router.navigate(['/beers/._id'])
     })
-  }user
+  }
 }
