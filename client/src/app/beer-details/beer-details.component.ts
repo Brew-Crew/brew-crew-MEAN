@@ -35,14 +35,13 @@ export class BeerDetailsComponent implements OnInit {
     })
   }
 
-  changeBeer(){
-    this.theService.editBeer
-  }
+  // changeBeer(){
+  //   this.theService.editBeer
+  // }
 
-  removeBeer(breweryId, beerId){
-    console.log("Brewery =========", breweryId)
-    console.log("BeerId =============================", beerId)
-    this.theService.deleteBeer(breweryId, beerId)
+  removeBeer(breweryId, theId){
+    console.log("Beer =========", theId)
+    this.theService.deleteBeer(breweryId, theId)
     .subscribe((res) => {
       this.thatBeer = {};
       this.thoseReviews = {};

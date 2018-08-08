@@ -110,8 +110,8 @@ beerRouter.post('/breweries/:id/beers/edit/:beerid', (req, res, next)=>{
 });
 
 //route for deleting a beer
-beerRouter.post('/breweries/:id/beers/delete/:beerid', (req, res, next) =>{
-  Beer.findByIdAndRemove(req.params.beerid)
+beerRouter.post('/breweries/:id/beers/delete/:theId', (req, res, next) =>{
+  Beer.findByIdAndRemove(req.params.theId)
     .then((response)=>{
       res.json(response);
     })
@@ -119,5 +119,7 @@ beerRouter.post('/breweries/:id/beers/delete/:beerid', (req, res, next) =>{
       next(err);
     });
 });
+
+
 
 module.exports = beerRouter;
