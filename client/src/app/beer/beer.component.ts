@@ -33,13 +33,10 @@ export class BeerComponent implements OnInit {
     });
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 489da4070f373836373623e67de27ba5e089e25d
 
-  allBeers(){
-    this.theService.allBeers()
-    .subscribe((res)=>{
-      this.beers = res;
-    });
-  }
 
   showBreweryBeers(){
     this.theService.breweryBeers(this.beersFromBrewery)
@@ -48,8 +45,12 @@ export class BeerComponent implements OnInit {
     })
   }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 46cfae21271cd4a8024f7c78416a025bb0e7cd42
+=======
+
+>>>>>>> 489da4070f373836373623e67de27ba5e089e25d
   ngOnInit() {
       this.allBeers();
       this.showBreweryBeers();
