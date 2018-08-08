@@ -23,9 +23,16 @@ export class BeerService {
     .catch(this.handleError)
   }
 
+
   oneBeer(theId){
     return this.http.get('http://localhost:3000/api/beers/'+theId)
     .map((res) => res.json())
+    .catch(this.handleError)
+  }
+
+  breweryBeers(beersListFromBrewery){
+    return this.http.get('http://localhost:3000/api/breweries/' + beersListFromBrewery + '/beers')
+    .map(res => res.json())
     .catch(this.handleError)
   }
 
@@ -35,14 +42,14 @@ export class BeerService {
     .catch(this.handleError)
   }
 
-  editBeer(theBreweryID, theId){
-    return this.http.post('http://localhost:3000/api/breweries/' + theBreweryID + '/beers/edit/' + theId, {withCredentials: true})
+  editBeer(theId){
+    return this.http.post('http://localhost:3000/api/brewery/beer/edit/' + theId, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }
 
-  deleteBeer(theBreweryID, theId){
-    return this.http.post('http://localhost:3000/api/breweries/' + theBreweryID + '/beers/delete/' + theId, {withCredentials: true})
+  deleteBeer(theId){
+    return this.http.post('http://localhost:3000/api/brewery/beer/delete/' + theId, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }

@@ -32,22 +32,19 @@ export class BreweryService {
   createBrewery(theBreweryEntry, userId){
     const newBrewery = theBreweryEntry
     newBrewery.userId = userId
-
-
-
     return this.http.post('http://localhost:3000/api/breweries/create', newBrewery)
     .map((res) => res.json())
     .catch(this.handleError)
   }
 
   editBrewery(brewery){
-    return this.http.post(`http://localhost:3000/api/breweries/${brewery}/edit`, {withCredentials: true})
+    return this.http.post(`http://localhost:3000/api/breweries/${brewery._id}/edit`, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }
 
   deleteBrewery(brewery){
-    return this.http.post(`http://localhost:3000/api/breweries/${brewery}/remove`, {withCredentials: true})
+    return this.http.post(`http://localhost:3000/api/breweries/${brewery._id}/remove`, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }

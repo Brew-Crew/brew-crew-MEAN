@@ -17,7 +17,6 @@ export class BeerComponent implements OnInit {
 
   constructor(private theService: BeerService, private myActivatedRoute: ActivatedRoute) { }
 
-  
   allBeers(){
     this.theService.allBeers()
     .subscribe((res)=>{
@@ -32,11 +31,6 @@ export class BeerComponent implements OnInit {
       console.log('This======>' + response + "<==== was added into the collection")
     });
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 489da4070f373836373623e67de27ba5e089e25d
-
 
   showBreweryBeers(){
     this.theService.breweryBeers(this.beersFromBrewery)
@@ -45,12 +39,7 @@ export class BeerComponent implements OnInit {
     })
   }
 
-<<<<<<< HEAD
-=======
->>>>>>> 46cfae21271cd4a8024f7c78416a025bb0e7cd42
-=======
 
->>>>>>> 489da4070f373836373623e67de27ba5e089e25d
   ngOnInit() {
       this.allBeers();
       this.showBreweryBeers();
