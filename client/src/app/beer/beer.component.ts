@@ -17,7 +17,11 @@ export class BeerComponent implements OnInit {
 
   constructor(private theService: BeerService, private myActivatedRoute: ActivatedRoute) { }
 
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> a3cb5214b76c1798357df71c6a61a2c98a753cf9
   allBeers(){
     this.theService.allBeers()
     .subscribe((res)=>{
@@ -34,7 +38,10 @@ export class BeerComponent implements OnInit {
   }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3cb5214b76c1798357df71c6a61a2c98a753cf9
   showBreweryBeers(){
     this.theService.breweryBeers(this.beersFromBrewery)
     .subscribe((response)=>{
@@ -42,6 +49,10 @@ export class BeerComponent implements OnInit {
     })
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a3cb5214b76c1798357df71c6a61a2c98a753cf9
   ngOnInit() {
       this.allBeers();
       this.showBreweryBeers();
