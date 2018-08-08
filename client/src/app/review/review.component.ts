@@ -11,7 +11,7 @@ export class ReviewComponent implements OnInit {
 
   thatOneReview: any;
   // beerEntry: any = {};
-  newReview: any = {};
+  // newReview: any = {};
   userReview: any = {};
 
   constructor(private viewService: ReviewService) { }
@@ -38,18 +38,20 @@ export class ReviewComponent implements OnInit {
   }
 
   //edit
-  changeReview(beerId, reviewId){
-    this.viewService.editReview(beerId, reviewId)
+  changeReview(){
+    this.viewService.editReview(this.thatOneReview)
     .subscribe(() =>{
 
     })
   }
 
 
-  deleteReview(beerId, reviewId){
+  deleteReview(){
     // beerId: id
     
-    this.viewService.removeReview(beerId, reviewId)
-    .subscribe((res) => {this.thatOneReview = {}})
+    this.viewService.removeReview(this.thatOneReview)
+    .subscribe((res) => {
+
+    })
   }user
 }

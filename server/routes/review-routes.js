@@ -80,7 +80,7 @@ router.post('/beers/:id/review/create', (req, res, next)=>{
 })
 
 //Edit your review
-router.post('/beers/:id/review/:reviewid/edit', (req, res, next) => {
+router.post('/beer/review/:reviewid/edit', (req, res, next) => {
   Review.findByIdAndUpdate(req.params.reviewid, {
     review: req.body.review,
     rating: req.body.rating,
@@ -97,7 +97,7 @@ router.post('/beers/:id/review/:reviewid/edit', (req, res, next) => {
 
 
 //Delete said review
-router.delete('/beers/:id/review/:reviewid/delete', (req, res, next) => {
+router.delete('/beer/review/:reviewid/delete', (req, res, next) => {
   const id = req.params.reviewid;
   Review.findByIdAndRemove(id)
   .then((response)=>{

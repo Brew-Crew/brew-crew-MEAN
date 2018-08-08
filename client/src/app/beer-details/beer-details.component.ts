@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../services/beer.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class BeerDetailsComponent implements OnInit {
   thoseReviews: any = [];
 
 
-  constructor(private theService: BeerService, private myActivated:ActivatedRoute) { }
+  constructor(private theService: BeerService, private myActivated: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.myActivated.params.subscribe(params => {
@@ -38,13 +38,11 @@ export class BeerDetailsComponent implements OnInit {
   //   this.theService.editBeer
   // }
 
-  removeBeer(breweryId, theId){
-    console.log("Beer =========", theId)
-    this.theService.deleteBeer(breweryId, theId)
-    .subscribe((res) => {
-      this.thatBeer = {};
-      this.thoseReviews = {};
-      // this.myActivated
+  removeBeer(){
+    console.log("Beer =========", this.thatBeer._id)
+    this.theService.deleteBeer(this.thatBeer)
+    .subscribe(() => {
+      this.router.navigate(['/beers'])
     })
   }
 
