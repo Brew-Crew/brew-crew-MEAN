@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../services/beer.service'
-import { ReviewService } from '../services/review.service'
 import { ActivatedRoute } from '@angular/router';
 
 
