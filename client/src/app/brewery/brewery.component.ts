@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BreweryComponent implements OnInit {
 
   breweries:Array<any>;
+  theUserId: any = {};
   theNewBreweryEntry: any = {};
 
   constructor(private myActivatedRoute: ActivatedRoute, private theService: BreweryService) { }
@@ -19,7 +20,7 @@ export class BreweryComponent implements OnInit {
   }
 
   addNewBrewery(){
-    this.theService.createBrewery(this.theNewBreweryEntry)
+    this.theService.createBrewery(this.theNewBreweryEntry, this.theUserId)
     .subscribe((response)=>{
       this.theNewBreweryEntry = {};
       this.allBreweries();

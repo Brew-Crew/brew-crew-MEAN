@@ -5,6 +5,29 @@ const User          = require('../models/user')
 const Brewery       = require('../models/brewery');
 const Beer         = require('../models/beer');
 
+
+//Delete said review
+router.post('/beer/review/:reviewid/delete/:reviewindex', (req, res, next) => {
+  const id = req.params.reviewid;
+  const reviewindex = req.params.reviewIndex;
+
+  Review.findByIdAndRemove(id)
+  .then((response)=>{
+    Beer.findById(response.belongsToBeer)
+    .then((theBeer)=>{
+      theBeer.review.splice(reviewindex, 1)
+      theBeer.save()
+      .then((blah)=>{
+        res.json(response);
+      })
+    })
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
+
 router.get('/breweries/review', (req, res, next)=>{
   Brewery.findById(req.user.favBreweries[0])
   .then((theBrewery)=>{
@@ -94,19 +117,6 @@ router.post('/beer/review/:reviewid/edit', (req, res, next) => {
 });
 
 
-
-
-//Delete said review
-router.delete('/beer/review/:reviewid/delete', (req, res, next) => {
-  const id = req.params.reviewid;
-  Review.findByIdAndRemove(id)
-  .then((response)=>{
-    res.json(response)
-  })
-  .catch((err)=>{
-    next(err);
-  });
-});
 
 
 module.exports = router;
