@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BreweryComponent implements OnInit {
 
   breweries:Array<any>;
+  theUserId: any = {};
   beersFromBrewery:Array<any>;
   theNewBreweryEntry: any = {};
   theUserId: any = {};

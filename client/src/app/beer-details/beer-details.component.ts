@@ -34,17 +34,29 @@ export class BeerDetailsComponent implements OnInit {
     })
   }
 
-  // changeBeer(){
-  //   this.theService.editBeer
-  // }
+  changeBeer(){
+    this.theService.editBeer(this.thatBeer)
+    .subscribe((res) => {
+      this.beerDetails = res;
+      location.reload()
+    })
+  }
 
   removeBeer(){
     console.log("Beer =========", this.thatBeer._id)
-    this.theService.deleteBeer(this.thatBeer)
+    this.theService.deleteBeer(this.thatBeer._id)
     .subscribe(() => {
       this.router.navigate(['/beers'])
     })
   }
 
 
+  deleteReview(index, reviewID){
+    // console.log(this.thatOneReview._id)
+    this.theService.removeReview(index, reviewID)
+      //delete for reviews, reviews is an array within an array
+    .subscribe(() => {
+      this.router.navigate(['/beers/._id'])
+    })
+  }
 }

@@ -49,9 +49,15 @@ export class BeerService {
   }
 
   deleteBeer(theId){
+    console.log('About to delete beeeeeeeeeeeeeeeer', theId)
     return this.http.post('http://localhost:3000/api/brewery/beer/delete/' + theId, {withCredentials: true})
     .map((res) => res.json())
     .catch(this.handleError)
   }
 
+  removeReview(index, reviewID) {
+    return this.http.post(`http://localhost:3000/api/beer/review/${reviewID}/delete/${index}`, {} , {withCredentials: true})
+    .map((res) => res.json())
+    .catch(this.handleError)
+  }
 }
