@@ -1,0 +1,33 @@
+<div>
+  
+  <h4>{{thatBeer.name}}</h4>
+  <br>
+  description: {{thatBeer.description}}
+  <br>
+  alcohol Content: {{thatBeer.alchContent}}
+  <br>
+  price: {{thatBeer.price}}
+  
+</div>
+<button (click)="removeBeer()">Delete Beer</button>
+
+<app-review [thatBeer]='thatBeer' ></app-review>
+
+<hr>
+Reviews:
+<div *ngFor = "let reviews of thoseReviews">
+  <div *ngFor = "let onewReview of reviews">
+    Creator: {{onewReview.author.username}}
+    <br>
+    Review: {{onewReview.review}}
+    <br>
+    Rating: {{ onewReview.rating }}
+    <br>
+    <button (click)="deleteReview()">Remove Review</button>
+
+    <hr>
+  </div>
+</div>
+
+
+
